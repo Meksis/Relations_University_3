@@ -1,1 +1,2 @@
-streamlit run saut.py
+@echo off
+python start.py

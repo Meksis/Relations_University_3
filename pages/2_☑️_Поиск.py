@@ -2,62 +2,6 @@ import streamlit as st
 
 st.set_page_config(page_title='Поиск', page_icon="☑️", layout="wide", initial_sidebar_state = 'collapsed')
 
-def change_colour():
-    if face_start=="Юр. лицо":
-            st.markdown(
-                """
-            <style>
-            span[data-baseweb="tag"] {
-            background-color: red !important;
-            }
-            </style>
-            """,
-                unsafe_allow_html=True,
-            )
-
-
-    elif face_start=="Физ. лицо":
-        st.markdown(
-            """
-            <style>
-            span[data-baseweb="tag"] {
-            background-color: green !important;
-            }
-            </style>
-            """,
-            unsafe_allow_html=True
-        )
-
-
-    elif face_end=="ЮР. лицо":
-        st.markdown(
-            """
-            element.style{
-
-            }
-            <style>
-            span[data-baseweb="tag"] {
-            background-color: red !important;
-            }
-            </style>
-            """,
-            unsafe_allow_html=True
-        )
-
-
-    elif face_end=="Физ. лицо":
-        st.markdown(
-            """
-            <style>
-            span[data-baseweb="tag"] {
-            background-color: green !important;
-            }
-            </style>
-            """,
-            unsafe_allow_html=True
-        )
-
-
 try:
     db_object = st.session_state['DB_object']
     db_status = db_object.DB_connection_check()
