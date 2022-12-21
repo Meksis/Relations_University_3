@@ -6,6 +6,10 @@ from py2neo import Graph
 
 from typing import Union
 
+import os
+
+os.system('''pip install -r rq.txt''')
+
 st.set_page_config(page_title='Подключение', page_icon="⚙️", layout="wide", initial_sidebar_state = 'expanded')
 
 
