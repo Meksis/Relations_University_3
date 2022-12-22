@@ -8,23 +8,29 @@ if 'search_result' in st.session_state:
     res_0 = []
     res_1 = []
     
-    #st.write(list(result))
-    #st.write(list(result)[0][0])
-    
-    for counter in range(len(result)):
-        res_0.append(dict(result[counter][0]))
-        res_1.append(dict(result[counter][1]))
-        # res_1.append(list(result[counter])[1])
+    st.write(st.session_state.query_mode)
 
-    result_column_1, result_column_2 = st.columns(2)
+    if not st.session_state.query_mode:
+        if len(result) > 0:
+            for counter in range(len(result)):
+                res_0.append(dict(result[counter][0]))
+                res_1.append(dict(result[counter][1]))
+                # res_1.append(list(result[counter])[1])
 
-    with result_column_1:
-        st.write('''### I группа подходящих лиц''')
-        st.write(res_0)
+            result_column_1, result_column_2, result_column_3 = st.columns(3)
 
-    with result_column_2:
-        st.write('''### II группа подходящих лиц''')
-        st.write(res_1)
+            with result_column_1:
+                st.write('''### I группа подходящих лиц''')
+                st.write(res_0)
+
+            with result_column_2:
+                st.write(f'''### {st.session_state.relation_type_}''')
+
+            with result_column_3:
+                st.write('''### II группа подходящих лиц''')
+                st.write(res_1)
+    else:
+        st.write(result)
 
 else:
     '''# Здесь пока ничего нет\nПоищите что-нибудь и мы вам это покажем.'''

@@ -56,7 +56,7 @@ class DB_interact():
         return(self.con_status)
 
     def DB_execute(self, query : str):
-        self.response = list(self.graph.run(query).to_table())
+        self.response = self.graph.run(query).to_table()
         return(self.response)
 
         
@@ -69,9 +69,7 @@ class DB_interact():
         else:
             # st.write('[ERROR] Подключение к базе данных не выполнено!')
             return(False)
-        
 
-        # print(len(self.response))
 
         
 
